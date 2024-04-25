@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Corona Virus Tracker Application</title>
+    <meta http-equiv="Content_Type" content="text/html; charset = UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <h1>
+        Corona Virus Tracker Application
+    </h1>
+    <h2>
+
+    </h2>
+
+
+    <div class="jumbotron">
+        <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+        <p class="lead">total cases reported as of today</p>
+
+        <h2 class="display-4" th:text="${totalReportedDeaths}"></h2>
+        <p class="lead">total deaths reported as of today</p>
+
+        <h2 class="display-4" th:text="${totalReportedRecoveries}"></h2>
+        <p class="lead">total reported recoveries as of today</p>
+
+
+    </div>
+    <form th:action="@{/locationStats}" method="get">
+        <input id="txtSearch" type="text" name="keyword">
+        <button type="submit">GO</button>
+    </form>
+    <div>
+
+        <table class="table" id="table1" style="width:75%; float:left">
+            <tr>
+                <th text-align="center">COUNTRY</th>
+                <th text-align="center">STATE</th>
+                <th text-align="center">TOTAL CASES</th>
+                <th text-align="center">NEW CASES</th>
+
+            </tr>
+
+            <tr th:each="locationStat : ${locationStats}">
+
+                <td th:text="${locationStat.country}" ; text-align="center"></td>
+                <td th:text="${locationStat.state}" ; text-align="center"></td>
+                <td th:text="${locationStat.latestTotalCases}" ; text-align="center">0</td>
+                <td th:text="${locationStat.diff}" ; text-align="center">0</td>
+
+
+            </tr>
+        </table>
+
+
+
+        <table class="table" id="table2" style="width: 12.5%; float:inline-start">
+            <tr>
+                <th text-align="center">DEATHS</th>
+
+            </tr>
+
+            <tr th:each="locationStatd : ${locationStatsd}">
+                <td th:text="${locationStatd.latestTotalDeaths}" ; text-align="center">0</td>
+
+
+            </tr>
+        </table>
+
+
+
+
+
+        <table class="table" id="table3" style="width:12.5%; float:inline-start">
+            <tr>
+                <th text-align="center">RECOV</th>
+            </tr>
+            <tr th:each="locationStatr : ${locationStatsr}">
+                <td th:text="${locationStatr.latestTotalRecoveries}" ; text-align="center">0</td>
+            </tr>
+
+        </table>
+
+
+    </div>
+</body>
+
+</html>

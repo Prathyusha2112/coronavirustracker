@@ -1,0 +1,26 @@
+{
+    "folders": [
+		{
+			"path": "..\\..\\..\\..\\..\\prathyusha\\programs\\java"
+		},
+		{
+			"name": "corona",
+			"path": "..\\..\\..\\..\\..\\prathyusha\\corona"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\prathyusha\\coronavirus-tracker"
+		},
+		{
+			"name": "coronavirustracker",
+			"path": "..\\..\\..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\prathyusha\\programs\\java script"
+		}
+	],
+    "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "java.maven.downloadSources": true,
+        "java.maven.updateSnapshots": true
+    }
+}
